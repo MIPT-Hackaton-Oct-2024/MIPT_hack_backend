@@ -1,3 +1,6 @@
+fastapi
+black
+uvicorn[standard]
 numpy
-pandas 
-matplotlib
+pandas
+requests
