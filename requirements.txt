@@ -4,3 +4,5 @@ uvicorn[standard]
 numpy
 pandas
 requests
+Jinja2
+python-multipart
