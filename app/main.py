@@ -30,10 +30,14 @@ async def predict():
     global _test_fname
 
     async with aiohttp.ClientSession() as session:
+        data = aiohttp.FormData(quote_fields=False)
+        data.add_field(
+            "file_upload", open(f"./uploads/{_test_fname}", "rb"), filename=_test_fname
+        )
+
         async with session.post(
-            url="http://localhost:4000/get_predictions_testmodel/",
-            # json=pd.read_excel(f"./uploads/{_test_fname}").to_json(orient="records"),
-            json={"key": 123},
+            url="http://localhost:4000/uploadfile/",
+            data=data,
             proxy="http://mipt-hack-ml_engine:4000/",
         ) as resp:
             data = await resp.json()
