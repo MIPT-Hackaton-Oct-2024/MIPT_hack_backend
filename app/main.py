@@ -45,5 +45,5 @@ async def predict():
 
 
 @app.get("/")
-def main():
+async def main():
     return "Welcome!"
